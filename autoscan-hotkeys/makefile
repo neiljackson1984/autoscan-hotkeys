@@ -18,7 +18,7 @@ build/${projectName}.exe: ${7zipModule} ${sfxConfigFile} build/contents.7z
 build/contents.7z : ${deployableFiles}
 	mkdir --parents build
 	rm --force build/contents.7z
-	cd deployment && 7z a -r "$(abspath ${tempArchive})" *
+	cd deployment && 7z a -r "$(shell cygpath --windows --absolute ${tempArchive})" *
 
 ${sfxConfigFile} : makefile
 	mkdir --parents build
